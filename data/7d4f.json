@@ -1,0 +1,7 @@
+{
+    "id": "7d4f",
+    "name": "Aspirin C",
+    "amount": 3,
+    "quantity": 60,
+    "badges": ["overdue", "favorite"]
+}

@@ -16,4 +16,10 @@ apteczka.controller('SignInCtrl', function ($scope, $location, $log, UserModel) 
     $scope.isSignedIn = function () {
         return UserModel.isSignedIn();
     }
+    $scope.isOnKit = function () {
+        return $location.path() === '/kit';
+    };
+    $scope.isOnMedicamentIndex = function () {
+        return $location.path() === '/medicamentIndex';
+    };
 });

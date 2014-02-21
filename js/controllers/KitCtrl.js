@@ -1,12 +1,15 @@
-apteczka.controller('KitCtrl', function ($scope, $location, UserModel) {
+apteczka.controller('KitCtrl', function ($scope, $location, KitREST, UserModel) {
     if (!UserModel.isSignedIn()) {
         $location.path('/');
     }
-    $scope.items = [
-        {'name': 'Rutinoscorbin', 'amount': 25, warning: 'Data ważności upływa za 7 dni', badges: ['almost-overdue']},
-        {'name': 'Lorinden A', 'amount': 50},
-        {'name': 'Aspirin C', 'amount': 3, danger: 'Lek stracił swoją ważność', badges: ['overdue', 'favorite']},
-        {'name': 'Elocom', 'amount': 17},
-        {'name': 'Chlorchinaldin', 'amount': 12, badges: ['favorite']}
-    ];
+
+    $scope.kit = KitREST.get();
+
+    $scope.danger = function (item) {
+        return item.badges && item.badges.indexOf('overdue') >= 0;
+    }
+
+    $scope.goToDetails = function (itemId) {
+        $location.path('/item/' + itemId);
+    };
 });

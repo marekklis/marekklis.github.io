@@ -1,0 +1,13 @@
+/*shrink and expand*/
+td.shrink {
+    width: 1px;
+    white-space: nowrap;
+}
+
+td.expand {
+    width: 99%;
+}
+
+td.label-column {
+    width: 30%;
+}

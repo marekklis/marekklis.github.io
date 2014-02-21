@@ -1,0 +1,8 @@
+{
+    "id": "abcd",
+    "name": "Rutinoscorbin",
+    "amount": 25,
+    "amountType": "szt.",
+    "quantity": 10,
+    "badges": ["almost-overdue"]
+}
