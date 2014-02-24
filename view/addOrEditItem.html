@@ -1,0 +1,96 @@
+<div class="page-header">
+    <h1>Lek: {{item.name}}</h1>
+</div>
+
+<form name="form" role="form" class="form-horizontal">
+
+    <div class="form-group" ng-class="{'has-error': !form.name.$valid}">
+        <label for="name" class="col-sm-2 control-label">Nazwa</label>
+
+        <div class="col-sm-6">
+            <input id="name" name="name" class="form-control" ng-model="item.name" type="text" required/>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.name.$valid  || form.name.$pristine" class="text-warning">Nazwa nie może być pusta</p>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': !form.amount.$valid}">
+        <label for="amount" class="col-sm-2 control-label">Ilość</label>
+
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input id="amount" name="amount" class="form-control" ng-model="item.amount" type="number"
+                       ng-pattern="onlyNumbers" required/>
+
+                <div class="input-group-btn">
+                    <button type="button" class="btn dropdown-toggle"
+                            ng-class="{'btn-danger': !form.amount.$valid, 'btn-default':form.amount.$valid}"
+                            data-toggle="dropdown">{{item.amountType}}<span
+                            class="caret"></span></button>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a ng-click="item.amountType = 'szt.'">szt.</a></li>
+                        <li><a ng-click="item.amountType = 'ml'">ml</a></li>
+                        <li><a ng-click="item.amountType = '%'">%</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.amount.$valid || form.amount.$pristine" class="text-warning">Nie jest poprawną liczbą</p>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': !form.quantity.$valid}">
+        <label for="quantity" class="col-sm-2 control-label">Ilość pakowa</label>
+
+        <div class="col-sm-6">
+            <input id="quantity" name="quantity" class="form-control" ng-model="item.quantity"
+                   ng-pattern="onlyNumbers"/>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.quantity.$valid || form.quantity.$pristine" class="text-warning">Nie jest poprawną
+                liczbą</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="bestBeforeDate" class="col-sm-2 control-label">Data ważności</label>
+
+        <div class="col-sm-6">
+            <input id="bestBeforeDate" class="form-control" ng-model="item.bestBeforeDate"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="openingDate" class="col-sm-2 control-label">Data otwarcia</label>
+
+        <div class="col-sm-6">
+            <input id="openingDate" class="form-control" ng-model="item.openingDate"/>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': !form.expirationDaysAfterOpening.$valid}">
+        <label for="expirationDaysAfterOpening" class="col-sm-2 control-label">Ważność po otwarciu</label>
+
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input id="expirationDaysAfterOpening" name="expirationDaysAfterOpening" class="form-control"
+                       ng-model="item.expirationDaysAfterOpening" ng-pattern="onlyNumbers"/>
+                <span class="input-group-addon">dni</span>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.expirationDaysAfterOpening.$valid" class="text-warning">Nie jest poprawną liczbą</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+            <button type="button" class="btn btn-danger" ng-click="save()" ng-disabled="!form.$valid">Zapisz</button>
+            <button type="button" class="btn btn-primary" ng-click="cancel()">Anuluj</button>
+        </div>
+    </div>
+</form>
+
+

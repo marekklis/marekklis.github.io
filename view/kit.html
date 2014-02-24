@@ -1,3 +1,6 @@
+<button type="button" class="btn btn-primary pull-right" ng-click="goToAddItem()"><span
+        class="glyphicon glyphicon-plus"></span> Dodaj
+</button>
 <div class="page-header">
     <h1>{{kit.name}}</h1>
 </div>
@@ -21,9 +24,9 @@
         <td class="shrink">{{item.amount + ' ' + item.amountType}}</td>
         <td>
             <div class="progress" ng-show="item.quantity">
-                <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="{{item.quantity}}"
-                     aria-valuemin="0" aria-valuemax="100" ng-style="{width: item.quantity + '%'}">
-                    {{item.quantity}}%
+                <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="{{item.percentage}}"
+                     aria-valuemin="0" aria-valuemax="100" ng-style="{width: item.percentage + '%'}">
+                    {{item.percentage}}%
                 </div>
             </div>
         </td>

@@ -12,4 +12,8 @@ apteczka.controller('KitCtrl', function ($scope, $location, KitREST, UserModel) 
     $scope.goToDetails = function (itemId) {
         $location.path('/item/' + itemId);
     };
+
+    $scope.goToAddItem = function () {
+        $location.path('/kit/' + $scope.kit.id + "/add");
+    }
 });

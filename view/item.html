@@ -1,3 +1,46 @@
-{{item.id}} | {{item.name}}
+<button type="button" class="btn btn-primary pull-right" ng-click="goToKit()">Zamknij</button>
+<button type="button" class="btn btn-info pull-right" ng-click="goToEdit()">Edytuj</button>
+<div class="page-header">
+    <h1>{{item.name}}</h1>
+</div>
 
-<button class="btn btn-success">Zamknij</button>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td class="shrink"><strong>Nazwa</strong></td>
+                <td>{{item.name}}</td>
+            </tr>
+            <tr>
+                <td class="shrink"><strong>Ilość</strong></td>
+                <td>{{item.amount}} {{item.amountType}}</td>
+            </tr>
+            <tr ng-show="item.quantity">
+                <td class="shrink"><strong>Ilość pakowa</strong></td>
+                <td>{{item.quantity}} {{item.amountType}}</td>
+            </tr>
+            <tr>
+                <td class="shrink"><strong>Data wstawienia</strong></td>
+                <td>{{item.insertionDate}}</td>
+            </tr>
+            <tr ng-show="item.expirationDate">
+                <td class="shrink"><strong>Data przydatności</strong></td>
+                <td>
+                    <p>{{item.expirationDate}}</p>
+                    <small class="text-muted" ng-show="item.bestBeforeDate">{{item.bestBeforeDate}} - względem daty
+                        ważności na opakowaniu
+                    </small>
+                    <br/>
+                    <small class="text-muted" ng-show="item.bestBeforeDateBasedOnOpening">
+                        {{item.bestBeforeDateBasedOnOpening}} - {{item.expirationDaysAfterOpening}} dni po otwarciu
+                    </small>
+                </td>
+            </tr>
+            <tr ng-show="item.openingDate">
+                <td class="shrink"><strong>Data otwarcia</strong></td>
+                <td>{{item.openingDate}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4"></div>
+</div>

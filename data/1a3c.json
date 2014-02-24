@@ -1,7 +1,13 @@
 {
     "id": "1a3c",
     "name": "Lorinden A",
-    "amount": 50,
+    "amount": 35,
     "amountType": "szt.",
-    "quantity": 35
+    "quantity": 50,
+    "insertionDate": "22.01.2014",
+    "expirationDate": "28.02.2014",
+    "bestBeforeDate": "05.02.2015",
+    "openingDate": "01.02.2014",
+    "bestBeforeDateBasedOnOpening": "28.02.2014",
+    "expirationDaysAfterOpening": 27
 }

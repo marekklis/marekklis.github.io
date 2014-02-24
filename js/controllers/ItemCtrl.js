@@ -3,5 +3,20 @@ apteczka.controller('ItemCtrl', function ($scope, $routeParams, $location, ItemR
         $location.path('/');
     }
 
-    $scope.item = $scope.kit = ItemREST.get({itemId: $routeParams.itemId});
+    $scope.item = ItemREST.get({itemId: $routeParams.itemId});
+
+    $scope.amount = function (item) {
+        if (item.quantity) {
+            return item.amount + " " + item.amountType + "(z " + +")";
+        }
+        return item.amount + " " + item.amountType;
+    }
+
+    $scope.goToKit = function () {
+        $location.path('/kit');
+    }
+
+    $scope.goToEdit = function () {
+        $location.path('/item/' + $scope.item.id + '/edit');
+    }
 });
